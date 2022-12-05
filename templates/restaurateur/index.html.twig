@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Restaurateur index{% endblock %}
+
+{% block body %}
+    <h1>Restaurateur index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Numtel</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for restaurateur in restaurateurs %}
+            <tr>
+                <td>{{ restaurateur.id }}</td>
+                <td>{{ restaurateur.nom }}</td>
+                <td>{{ restaurateur.email }}</td>
+                <td>{{ restaurateur.password }}</td>
+                <td>{{ restaurateur.numtel }}</td>
+                <td>
+                    <a href="{{ path('app_restaurateur_show', {'id': restaurateur.id}) }}">show</a>
+                    <a href="{{ path('app_restaurateur_edit', {'id': restaurateur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_restaurateur_new') }}">Create new</a>
+{% endblock %}
