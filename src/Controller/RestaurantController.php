@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controller;
-
 use App\Entity\Restaurant;
 use App\Form\RestaurantType;
 use App\Repository\RestaurantRepository;
@@ -17,6 +16,14 @@ class RestaurantController extends AbstractController
     public function index(RestaurantRepository $restaurantRepository): Response
     {
         return $this->render('restaurant/index.html.twig', [
+            'restaurants' => $restaurantRepository->findAll(),
+        ]);
+    }
+
+    #[Route('/list', name: 'app_restaurant_list', methods: ['GET'])]
+    public function list(RestaurantRepository $restaurantRepository): Response
+    {
+        return $this->render('restaurant/list.html.twig', [
             'restaurants' => $restaurantRepository->findAll(),
         ]);
     }
@@ -37,6 +44,14 @@ class RestaurantController extends AbstractController
         return $this->renderForm('restaurant/new.html.twig', [
             'restaurant' => $restaurant,
             'form' => $form,
+        ]);
+    }
+
+    #[Route('/{id}/detail', name: 'app_detail', methods: ['GET', 'POST'])]
+    public function detail(Restaurant $restaurant): Response
+    {
+        return $this->render('restaurant/detail.html.twig', [
+            'restaurant' => $restaurant,
         ]);
     }
 

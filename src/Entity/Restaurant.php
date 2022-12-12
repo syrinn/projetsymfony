@@ -23,7 +23,7 @@ class Restaurant
     private ?int $numtel = null;
 
     #[ORM\ManyToOne(inversedBy: 'restaurants')]
-    private ?restaurateur $restaurateur = null;
+    private ?Restaurateur $restaurateur = null;
 
     public function getId(): ?int
     {
@@ -76,5 +76,8 @@ class Restaurant
         $this->restaurateur = $restaurateur;
 
         return $this;
+    }
+    public function __toString(): string {
+        return $this->id;
     }
 }

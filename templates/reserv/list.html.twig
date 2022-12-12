@@ -1,7 +1,6 @@
+{% extends 'pages.html.twig' %}
 
-{% extends 'restaurateur.html.twig' %}
-
-{% block title %}Restaurant index{% endblock %}
+{% block title %}Reservation index{% endblock %}
 
 {% block body %}
 <section id="hero" class="d-flex align-items-center">
@@ -28,39 +27,46 @@
         color: white;
     }
     </style>
-    <h1> my restaurants</h1>
-    <br>
-
+    <h1> New Reservations </h1>
+<br>
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nom</th>
-                <th>Adresse</th>
-                <th>Numtel</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Of_people</th>
+                <th>Message</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for restaurant in restaurants %}
+        {% for reservation in reservations %}
             <tr>
-                <td>{{ restaurant.id }}</td>
-                <td>{{ restaurant.nom }}</td>
-                <td>{{ restaurant.adresse }}</td>
-                <td>{{ restaurant.numtel }}</td>
+                <td>{{ reservation.id }}</td>
+                <td>{{ reservation.name }}</td>
+                <td>{{ reservation.email }}</td>
+                <td>{{ reservation.phone }}</td>
+                <td>{{ reservation.date ? reservation.date|date('Y-m-d') : '' }}</td>
+                <td>{{ reservation.time ? reservation.time|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ reservation.ofPeople }}</td>
+                <td>{{ reservation.message }}</td>
                 <td>
-                    <a href="{{ path('app_restaurant_show', {'id': restaurant.id}) }}">show</a>
-                    <a href="{{ path('app_restaurant_edit', {'id': restaurant.id}) }}">edit</a>
+                    <a href="{{ path('app_reserv_show', {'id': reservation.id}) }}">show</a>
+                    <a href="{{ path('app_reserv_edit', {'id': reservation.id}) }}">Edit</a>
+
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="9">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-    <a href="{{ path('app_restaurant_new') }}">Create new</a>
 </div>
 </div>
 </section>

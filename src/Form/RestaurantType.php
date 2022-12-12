@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Form;
-
 use App\Entity\Restaurant;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -15,7 +14,6 @@ class RestaurantType extends AbstractType
             ->add('nom')
             ->add('adresse')
             ->add('numtel')
-            ->add('restaurateur')
         ;
     }
 

@@ -1,7 +1,6 @@
 
-{% extends 'restaurateur.html.twig' %}
-
-{% block title %}Restaurant index{% endblock %}
+{% extends 'pages.html.twig' %}
+{% block title %}Our Restaurants{% endblock %}
 
 {% block body %}
 <section id="hero" class="d-flex align-items-center">
@@ -28,8 +27,7 @@
         color: white;
     }
     </style>
-    <h1> my restaurants</h1>
-    <br>
+    <h1>Our Restaurants</h1>
 
     <table class="table">
         <thead>
@@ -49,9 +47,12 @@
                 <td>{{ restaurant.adresse }}</td>
                 <td>{{ restaurant.numtel }}</td>
                 <td>
-                    <a href="{{ path('app_restaurant_show', {'id': restaurant.id}) }}">show</a>
-                    <a href="{{ path('app_restaurant_edit', {'id': restaurant.id}) }}">edit</a>
+                    <a href="{{ path('app_reserv_form')}}">Make a reservation </a>
                 </td>
+                <td>
+                    <a href="{{ path('app_detail', {'id': restaurant.id}) }}"> More Details </a>
+                </td>
+        
             </tr>
         {% else %}
             <tr>
@@ -60,7 +61,6 @@
         {% endfor %}
         </tbody>
     </table>
-    <a href="{{ path('app_restaurant_new') }}">Create new</a>
 </div>
 </div>
 </section>

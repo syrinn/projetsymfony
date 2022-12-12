@@ -1,7 +1,6 @@
-{% extends 'restaurateur.html.twig' %}
+{% extends 'pages.html.twig' %}
 
-{% block title %}New Restaurant{% endblock %}
-
+{% block title %}New Reservation{% endblock %}
 {% block body %}
 <section id="hero" class="d-flex align-items-center">
     <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
@@ -98,20 +97,12 @@ button{
   background-color: rgba(255,255,255,0.47);
 }
  </style>
-    <h1>Create new Restaurant</h1>
 
-    {{ include('restaurant/_form.html.twig') }}
+    <h1> Make Reservation</h1>
 
-    <a href="{{ path('app_restaurant_index') }}">view the list</a>
+    {{ include('reserv/_form.html.twig') }}
 </body>
 </div>
 </div>
 </section>
 {% endblock %}
-
-
-
-
-
-
-

@@ -2,26 +2,29 @@
 
 namespace App\Form;
 
-use App\Entity\Restaurateur;
+use App\Entity\Reservation;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class RestaurateurType extends AbstractType
+class ReservType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom')
-            ->add('email')
-            ->add('password')
-            ->add('numtel')
+            ->add('name')
+            ->add('phone')
+            ->add('time')
+            ->add('message')
+           
         ;
     }
+    
+
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Restaurateur::class,
+            'data_class' => Reservation::class,
         ]);
     }
 }

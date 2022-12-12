@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .table{
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    .table td , .table th{
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    .table tr:nth-child(even){background-color: #f2f2f2;}
+    .table tr:hover{background-color: #ddd;}
+    .table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+    }
+    </style>
+</head><body>
+    {% block body %}
+    <h1>Restaurateur index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Numtel</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for restaurateur in restaurateurs %}
+            <tr>
+                <td>{{ restaurateur.id }}</td>
+                <td>{{ restaurateur.nom }}</td>
+                <td>{{ restaurateur.email }}</td>
+                <td>{{ restaurateur.password }}</td>
+                <td>{{ restaurateur.numtel }}</td>
+                <td>
+                    <a style="text-decoration: none; color :black; text-decoration-line:underline" href="{{ path('app_restaurateur_show', {'id': restaurateur.id}) }}">show</a>
+                    <a style="text-decoration: none; color :black; text-decoration-line:underline" href="{{ path('app_restaurateur_edit', {'id': restaurateur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a style="text-decoration: none; color :black; text-decoration-line:underline" href="{{ path('app_restaurateur_new') }}">Create new</a>
+{% endblock %}
+</body>
+</html>
+

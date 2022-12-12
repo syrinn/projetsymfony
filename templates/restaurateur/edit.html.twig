@@ -1,8 +1,13 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Edit Restaurateur{% endblock %}
-
-{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=4, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block body %}
     <h1>Edit Restaurateur</h1>
 
     {{ include('restaurateur/_form.html.twig', {'button_label': 'Update'}) }}
@@ -11,3 +16,8 @@
 
     {{ include('restaurateur/_delete_form.html.twig') }}
 {% endblock %}
+</body>
+</html>
+
+
+

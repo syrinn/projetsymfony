@@ -4,8 +4,9 @@ namespace App\DataFixtures;
 
 use App\Entity\Users;
 
-use Doctrine\Bundle\FixturesBundle\Fixture;
+use App\Entity\Restaurant;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\Bundle\FixturesBundle\Fixture;
 
 class Data extends Fixture
 {
@@ -13,12 +14,12 @@ class Data extends Fixture
     {
 
       for($i=0;$i<20;$i++) {
-        $users=new Users (); 
-        $users->setNom("user".$i) ;
-        $users->setEmail("Email".$i) ;
-        $users->setPassword("******");
-        $users->setnumtel("96350963");
-        $manager->persist($users);
+        $resto=new Restaurant();
+        $resto->setNom("Resto".$i) ;
+        $resto->setAdresse("Adresse".$i) ;
+        $resto->setNumtel("56089756");
+        $resto->setRestaurateur("aaa");
+        $manager->persist($resto);
     }
 
   $manager->flush();

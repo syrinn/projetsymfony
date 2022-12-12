@@ -19,6 +19,15 @@ class RestaurateurController extends AbstractController
         return $this->render('restaurateur/index.html.twig', [
             'restaurateurs' => $restaurateurRepository->findAll(),
         ]);
+        
+    }
+
+    #[Route('/list', name: 'app_restaurateur_list', methods: ['GET'])]
+    public function list(RestaurateurRepository $restaurateurRepository): Response
+    {
+        return $this->render('restaurateur/list.html.twig', [
+            'restaurateurs' => $restaurateurRepository->findAll(),
+        ]);
     }
 
     #[Route('/new', name: 'app_restaurateur_new', methods: ['GET', 'POST'])]
